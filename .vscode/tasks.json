@@ -1,0 +1,34 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build_release_simple_snake",
+            "type": "shell",
+            
+            // "command": "cl",   // 'cl' compiler 
+            // "args": [
+            //     "/W4",      // warning level 4
+            //     "/EHsc",    // exception handling model
+            //     "/MT",      // compiles to create a multithreaded executable file, by using LIBCMT.lib
+            //     "User32.lib",
+            //     "/Fe:${workspaceFolder}/builds/release/SimpleSnake.exe",
+            //     "/Fd:${workspaceFolder}/builds/release/",
+            //     "/Fo:${workspaceFolder}/builds/release/",
+            //     "${workspaceFolder}/source/SimpleSnake.cpp"
+            // ],
+            
+            "command": "g++",   // 'MinGW' compiler
+            "args":[
+                "-static",
+                "-g", ".\\source\\SimpleSnake.cpp",
+                "-o", ".\\builds\\release\\SimpleSnake"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
